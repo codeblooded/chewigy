@@ -1,4 +1,4 @@
-from lib.rest_client import RestClient
+from crawlerlib.rest_client import RestClient
 from urllib.error import HTTPError
 import logging
 
