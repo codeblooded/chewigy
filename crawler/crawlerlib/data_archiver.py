@@ -6,7 +6,7 @@ class DataArchiver(object):
         self.data_dir = self._create_data_directory()
 
     def write_file(self, path, contents=''):
-        file = open(self.data_dir + '/' + path)
+        file = open(self.data_dir + '/' + path, 'wb')
         file.write(contents)
         file.close()
 

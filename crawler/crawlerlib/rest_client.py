@@ -7,5 +7,5 @@ class RestClient(object):
         request = Request(url, None, headers={'User-agent': self.user_agent})
         response = urlopen(request)
         body = response.read()
-        return body.decode("utf-8")
+        return body
     

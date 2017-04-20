@@ -1,6 +1,11 @@
-from crawlerlib.rest_client import RestClient
+from lxml import etree
 from urllib.error import HTTPError
+from crawlerlib.rest_client import RestClient
+from crawlerlib.data_archiver import DataArchiver
 import logging
+import gzip
+import hashlib
+import os
 
 class SitemapParser(object):
     def __init__(self, root_url):
@@ -22,8 +27,9 @@ class SitemapParser(object):
         """
         client = RestClient()
         try:
-            response = client.get(self.sitemap_url)
-            return response
+            response = client.get(self.sitemap_url).decode("utf-8")
         except HTTPError:
             logging.fatal('Could not reach sitemap.')
             return None
+        xml = etree.XML(response)
+        return xml.xpath('//*[local-name()="loc"]/text()')
