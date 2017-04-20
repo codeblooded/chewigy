@@ -1,5 +1,5 @@
 from urllib.robotparser import RobotFileParser
-from lib.sitemap_parser import SitemapParser
+from crawlerlib.sitemap_parser import SitemapParser
 
 def main():
     robotparser = RobotFileParser(url='http://food.com/robots.txt')
