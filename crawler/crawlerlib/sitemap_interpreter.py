@@ -69,10 +69,11 @@ class SitemapInterpreter(object):
     
     def create_links_file(self):
         """
-        Create a data/LINKS file which has one link per line.
+        Create a data/LINKS file which has one recipe link per line.
         """
         with open('data/LINKS', 'w') as out:
             for xml_file_path in glob('data/sitemaps/*.xml'):
                 xml = etree.parse(xml_file_path)
                 for location in xml.xpath('//*[local-name()=\'loc\']/text()'):
-                    out.write(location + '\n')
+                    if "food.com/recipe/" in location and not "/review" in location:
+                        out.write(location + '\n')
