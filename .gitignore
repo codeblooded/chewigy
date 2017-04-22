@@ -105,3 +105,4 @@ ENV/
 
 # Crawler data
 data/
+.DS_Store
