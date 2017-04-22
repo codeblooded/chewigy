@@ -1,9 +1,5 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Chewigy</title>
-    </head>
-    <body>
-        <h2>It works, {{ addressee }}</h2>
-    </body>
-</html>
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Hello {{ addressee }}!</h1>
+{% endblock %}
