@@ -1,2 +1,4 @@
 Flask==0.12.1
 lxml==3.7.3
+cssselect-1.0.1
+bs4=0.0.1

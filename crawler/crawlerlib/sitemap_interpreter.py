@@ -77,3 +77,4 @@ class SitemapInterpreter(object):
                 for location in xml.xpath('//*[local-name()=\'loc\']/text()'):
                     if "food.com/recipe/" in location and not "/review" in location:
                         out.write(location + '\n')
+                        print(location)
