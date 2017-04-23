@@ -2,20 +2,20 @@
 <html>
     <head>
         <title>Chewigy</title>
-        
+
         <!-- Twitter Bootstrap Metadata and Stylesheets -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
     </head>
     <body>
-        <nav class="nav">
-            <a class="nav-link active" href="#">Active</a>
-            <a class="nav-link" href="#">Link</a>
-            <a class="nav-link" href="#">Link</a>
-            <a class="nav-link disabled" href="#">Disabled</a>
-            {{ url_for('static', filename = 'hello.js') }}
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <img src="{{ url_for('static', filename='img/logo.svg') }}" />
+            <form action="/search">
+                <input name="query" class="form-control mr-sm-2 search-bar" type="text" placeholder="Search">
+            </form>
         </nav>
 
         <div class="container-fluid">
