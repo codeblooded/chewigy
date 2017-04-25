@@ -15,14 +15,14 @@ def about():
 @app.route("/search")
 def search():
     query = request.args.get('query')
-    solr = pysolr.Solr('http://localhost:8983/solr/chewigy/', timeout=60)
+    solr = pysolr.Solr('http://localhost:8983/solr/food/', timeout=60)
     results = solr.search(query)
 
     results_json = list()
 
     for result in results.docs:
         results_json.append(result)
-
+    '''
     response = Response(json.dumps({
         'results': results_json,
         'time': results.qtime
@@ -30,6 +30,8 @@ def search():
 
     response.headers['Content-type'] = 'application/json'
     return response
+    '''
+    return render_template('result.html', recipes=results_json)
 
 @app.route("/robots.txt")
 def robots():

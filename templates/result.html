@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<div style="min-height: 20px;"></div>
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-6">
+			<div class="list-group">
+		    {% for recipe in recipes %}
+		  		<a href="{{ recipe.url[0] }}"" class="list-group-item list-group-item-action flex-column align-items-start">
+			    <div class="d-flex w-100 justify-content-between">
+			      <h5 class="mb-1">{{ recipe.title[0] }}</h5>
+			      <small class="text-muted">Ready in: {{ recipe.ready_in[0] }}</small>
+			    </div>
+			    <p class="mb-1">
+			    	<ul>
+			    		 {% for ingredient in recipe.ingredients %}
+			    		 	<li>{{ingredient}}</li>
+			    		 {% endfor %}
+			    	</ul>
+			    </p>
+			  </a>
+			{% endfor %}
+			</div>
+		</div>
+		<div class="col-3"></div>
+	</div>
+{% endblock %}
